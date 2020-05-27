@@ -32,18 +32,39 @@
 </style>
 
 <?php
-$t1 = $_POST['t1'] === '1';
-$t2 = $_POST['t2'] ? (int) $_POST['t2'] : false;
 
-if($t1 && $t2){
-    echo "Respostas aqui!";
-} else {
-    if(!$_POST['t1'] and !$_POST['t2']){
-        echo("Sorvete e TV 50'"); 
-    } elseif($_POST['t1'] xor $_POST['t2']){
-        echo('Sorvete e TV 32\'');
-    }else{
-        echo('Fica em casa mais saudável!');
+if(isset($_POST['t1']) && isset($_POST['t2'])){
+    $t1 = $_POST['t1'] === '1';
+    $t2 = !!$_POST['t2'];
+    $tv = '';
+    $sorvete = false;
+
+    // TV
+    if($t1 and $t2){
+        $tv = '50"';
+    } elseif($t1 xor $t2){
+        $tv = '32"';
     }
+
+    // SORVETE
+    if($t1 or $t2){
+        $sorvete = true;
+    }
+
+    // TV - Resposta
+    if($tv) {
+        $resultado = "Vamos comprar uma TV de $tv";
+    }else{
+        $resultado = "Sem TV dessa vez :(";
+    }
+
+    // SORVETE - Resposta
+    $saudavel = !$sorvete;
+    if($saudavel) {
+        $resultado .= '<br>Estamos mais saudáveis!';
+    } else{
+        $resultado .= '<br>Sorvete liberado \o/';
+    }
+
+    echo "<p>$resultado</p>";
 }
-?>
