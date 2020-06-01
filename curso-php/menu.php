@@ -1,5 +1,56 @@
 <nav class="modulos">
+            <div class="modulo azul">
+                <h3>12. Sessão</h3>
+                <ul>
+                    <li>
+                        <a href="exercicio.php?dir=api&file=datas_01">
+                            Datas #01
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modulo verde">
+                <h3>12. Sessão</h3>
+                <ul>
+                    <li>
+                        <a href="exercicio.php?dir=sessao&file=basico_sessao">
+                            Básico Sessão
+                        </a>
+                    </li>
+                    <li>
+                        <a href="exercicio.php?dir=sessao&file=gerenciando_sessao">
+                            Gerenciando Sessão
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modulo verde">
+                <h3>11. Tratamento de Erro</h3>
+                <ul>
+                    <li>
+                        <a href="exercicio.php?dir=tratamento_erro&file=try_catch">
+                            Try & Catch
+                        </a>
+                    </li>
+                    <li>
+                        <a href="exercicio.php?dir=tratamento_erro&file=erros_personalizados">
+                            Erros Personalizados
+                        </a>
+                    </li>
+                    <li>
+                        <a href="exercicio.php?dir=tratamento_erro&file=desafio_intdiv_teste">
+                            Desafio Intdiv
+                        </a>
+                    </li>
+                    <li>
+                        <a href="exercicio.php?dir=tratamento_erro&file=gerenciador_erro">
+                            Error Handler
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="modulo laranja-escuro">
+                
                 <h3>10. Namespace</h3>
                 <ul>
                     <li>
