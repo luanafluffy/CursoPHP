@@ -27,7 +27,7 @@ if($_POST['email']) {
             $_SESSION['erros'] = null;
             $_SESSION['usuario'] = $usuario['nome'];
             $exp = time() + 60 * 60 * 24 * 30; //qtde de segundos de 30 dias
-            setcookie('usuario', $usuaio['nome'], $exp);
+            setcookie('usuario', $usuario['nome'], $exp);
 
             header('Location: index.php');
         }
