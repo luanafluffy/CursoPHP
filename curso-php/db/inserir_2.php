@@ -7,7 +7,7 @@ if(count($_POST) > 0){
     $dados = $_POST;
     $erros = [];
 
-    if(trim($dados['nome']) === "") { 
+    if(trim($dados['nome']) === "") {  // trim = tira o sespaços em brancos
         $erros['nome'] = 'Nome é obrigatório';
     }
 
@@ -42,25 +42,28 @@ if(count($_POST) > 0){
         $erros['salario'] = 'Salario inválido';
     }
 
+    //Se não tiver nenhum erro entra aqui
     if(!count($erros)) {
         require_once "conexao.php";
 
+        //Não colocar dados diretamente no sql durante a consulta
         $sql = "INSERT INTO cadastro
         (nome, nascimento, email, site, filhos, salario)
         VALUES (?, ?, ?, ?, ?, ?)";
 
         $conexao = novaConexao();
-        $stmt = $conexao->prepare($sql);
+        $stmt = $conexao->prepare($sql); 
 
         $params = [
             $dados['nome'],
-            $data ? $data->format('Y-m-d') : null,
+            $data ? $data->format('Y-m-d') : null, //tratamento especial de data
             $dados['email'],
             $dados['site'],
             $dados['filhos'],
             $dados['salario'],
         ];
-
+        
+        //tipos de parametros e array com parametros
         $stmt->bind_param("ssssid", ...$params);
 
         if($stmt->execute()) {
@@ -70,18 +73,13 @@ if(count($_POST) > 0){
         }
     }
 }
-
-
 ?>
-
 
 <?php foreach($erros as $erro): ?>
 <!--    <div class="alert alert-danger" role="alert">
         <?= "" //$erro ?>   
     </div> -->
 <?php endforeach; ?>
-
-
 
 <form action="#" method="post">
     <div class="form-row">
